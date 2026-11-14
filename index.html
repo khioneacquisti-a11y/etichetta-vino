@@ -1,51 +1,105 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Etichetta Digitale - PIGNATARU 2025</title>
+  <title>Digital Label - PIGNATARU 2025</title>
   <style>
     body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 20px; background-color: #fafafa; }
     .card { background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-    h1 { color: #722f37; font-size: 24px; margin-bottom: 5px; }
+    .lang-switch { display: flex; justify-content: flex-end; gap: 8px; margin-bottom: 15px; }
+    .lang-btn { padding: 6px 12px; border: 1px solid #722f37; background: #fff; color: #722f37; border-radius: 4px; cursor: pointer; font-weight: bold; font-size: 13px; }
+    .lang-btn.active { background: #722f37; color: #fff; }
+    h1 { color: #722f37; font-size: 24px; margin-bottom: 5px; margin-top: 0; }
     h2 { font-size: 16px; color: #555; border-bottom: 1px solid #eee; padding-bottom: 5px; margin-top: 20px; }
     table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 14px; }
     td { padding: 8px; border-bottom: 1px solid #eee; }
     td:last-child { text-align: right; font-weight: bold; }
-    .allergeni { font-weight: bold; }
+    .allergens { font-weight: bold; }
     .footer { font-size: 12px; color: #777; margin-top: 20px; text-align: center; }
+    .hidden { display: none; }
   </style>
 </head>
 <body>
   <div class="card">
-    <h1>PIGNATARU - 2025</h1>
-    <p><strong>Denominazione:</strong> IGT / Terre Siciliane Rosso<br>
-    <strong>Gradazione alcolica:</strong> 13,5% vol. | <strong>Formato:</strong> 750 ml<br>
-    <strong>Bottiglie prodotte:</strong> 420<br>
-    <strong>Distributore esclusivo:</strong> Khione Ltd - Cardiff, Wales</p>
+    <div class="lang-switch">
+      <button id="btn-en" class="lang-btn active" onclick="setLang('en')">English</button>
+      <button id="btn-it" class="lang-btn" onclick="setLang('it')">Italiano</button>
+    </div>
 
-    <h2>Ingredienti</h2>
-    <p>Uve, <span class="allergeni">solfiti</span> (anidride solforosa), conservanti e antiossidanti (acido L-ascorbico).</p>
+    <!-- VERSIONE INGLESE -->
+    <div id="content-en">
+      <h1>PIGNATARU - 2025</h1>
+      <p><strong>Appellation:</strong> IGT / Terre Siciliane Red Wine<br>
+      <strong>Alcohol by volume:</strong> 13.5% vol. | <strong>Volume:</strong> 750 ml<br>
+      <strong>Bottles produced:</strong> 420<br>
+      <strong>Exclusive distributor:</strong> Khione Ltd - Cardiff, United Kingdom</p>
 
-    <h2>Dichiarazione Nutrizionale (per 100 ml)</h2>
-    <table>
-      <tr><td>Energia</td><td>335 kJ / 80 kcal</td></tr>
-      <tr><td>Grassi</td><td>0 g</td></tr>
-      <tr><td>di cui acidi grassi saturi</td><td>0 g</td></tr>
-      <tr><td>Carboidrati</td><td>1,2 g</td></tr>
-      <tr><td>di cui zuccheri</td><td>0,3 g</td></tr>
-      <tr><td>Proteine</td><td>0 g</td></tr>
-      <tr><td>Sale</td><td>0 g</td></tr>
-    </table>
+      <h2>Ingredients</h2>
+      <p>Grapes, <span class="allergens">sulphites</span> (sulphur dioxide), preservatives and antioxidants (L-ascorbic acid).</p>
 
-    <h2>Smaltimento Imballaggi</h2>
-    <p><strong>Bottiglia:</strong> GL 71 - Raccolta Vetro<br>
-    <strong>Tappo:</strong> FOR 51 - Raccolta Sughero / Organico<br>
-    <strong>Sigillo (Gommalacca):</strong> Raccolta Indifferenziata</p>
+      <h2>Nutrition Declaration (per 100 ml)</h2>
+      <table>
+        <tr><td>Energy</td><td>335 kJ / 80 kcal</td></tr>
+        <tr><td>Fat</td><td>0 g</td></tr>
+        <tr><td>of which saturates</td><td>0 g</td></tr>
+        <tr><td>Carbohydrate</td><td>1.2 g</td></tr>
+        <tr><td>of which sugars</td><td>0.3 g</td></tr>
+        <tr><td>Protein</td><td>0 g</td></tr>
+        <tr><td>Salt</td><td>0 g</td></tr>
+      </table>
 
-    <div class="footer">
-      Verifica le disposizioni del tuo Comune per la raccolta differenziata.
+      <h2>Packaging Disposal</h2>
+      <p><strong>Bottle:</strong> GL 71 - Glass Recycling<br>
+      <strong>Cork:</strong> FOR 51 - Cork / Organic Waste<br>
+      <strong>Seal (Shellac wax):</strong> General Waste</p>
+
+      <div class="footer">
+        Please check your local council guidelines for recycling.
+      </div>
+    </div>
+
+    <!-- VERSIONE ITALIANA -->
+    <div id="content-it" class="hidden">
+      <h1>PIGNATARU - 2025</h1>
+      <p><strong>Denominazione:</strong> IGT / Terre Siciliane Rosso<br>
+      <strong>Gradazione alcolica:</strong> 13,5% vol. | <strong>Formato:</strong> 750 ml<br>
+      <strong>Bottiglie prodotte:</strong> 420<br>
+      <strong>Distributore esclusivo:</strong> Khione Ltd - Cardiff, Regno Unito</p>
+
+      <h2>Ingredienti</h2>
+      <p>Uve, <span class="allergens">solfiti</span> (anidride solforosa), conservanti e antiossidanti (acido L-ascorbico).</p>
+
+      <h2>Dichiarazione Nutrizionale (per 100 ml)</h2>
+      <table>
+        <tr><td>Energia</td><td>335 kJ / 80 kcal</td></tr>
+        <tr><td>Grassi</td><td>0 g</td></tr>
+        <tr><td>di cui acidi grassi saturi</td><td>0 g</td></tr>
+        <tr><td>Carboidrati</td><td>1,2 g</td></tr>
+        <tr><td>di cui zuccheri</td><td>0,3 g</td></tr>
+        <tr><td>Proteine</td><td>0 g</td></tr>
+        <tr><td>Sale</td><td>0 g</td></tr>
+      </table>
+
+      <h2>Smaltimento Imballaggi</h2>
+      <p><strong>Bottiglia:</strong> GL 71 - Raccolta Vetro<br>
+      <strong>Tappo:</strong> FOR 51 - Raccolta Sughero / Organico<br>
+      <strong>Sigillo (Gommalacca):</strong> Raccolta Indifferenziata</p>
+
+      <div class="footer">
+        Verifica le disposizioni del tuo Comune per la raccolta differenziata.
+      </div>
     </div>
   </div>
+
+  <script>
+    function setLang(lang) {
+      document.getElementById('content-en').classList.toggle('hidden', lang !== 'en');
+      document.getElementById('content-it').classList.toggle('hidden', lang !== 'it');
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+      document.getElementById('btn-it').classList.toggle('active', lang === 'it');
+      document.documentElement.lang = lang;
+    }
+  </script>
 </body>
 </html>
